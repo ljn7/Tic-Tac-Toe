@@ -104,10 +104,10 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
 			p_player2_hash[1][1] = true;
             return 0;
         }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
+        else if (p_player1_hash[2][0] && !p_table_hash[1][0]) {
+            p_table[1][0] = p_player.playerTeam;
+            p_table_hash[1][0] = true;
+			p_player2_hash[1][0] = true;
             return 0;
         }
     }
@@ -170,10 +170,10 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
 			p_player2_hash[1][2] = true;
             return 0;
         }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
+        else if (p_player1_hash[2][0] && !p_table_hash[1][1]) {
+            p_table[1][1] = p_player.playerTeam;
+            p_table_hash[1][1] = true;
+			p_player2_hash[1][1] = true;
             return 0;
         }
     }
@@ -204,6 +204,7 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
             return 0;
         }
     }
+    //counter pick for table[1][1]
     if (p_player1_hash[1][1]) {
         if (p_player1_hash[0][0] && !p_table_hash[2][2]) {
             p_table[2][2] = p_player.playerTeam;
@@ -239,6 +240,18 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
             p_table[0][2] = p_player.playerTeam;
             p_table_hash[0][2] = true;
 			p_player2_hash[0][2] = true;
+            return 0;
+        }
+        else if (p_player1_hash[1][0] && !p_table_hash[1][2]) {
+            p_table[1][2] = p_player.playerTeam;
+            p_table_hash[1][2] = true;
+			p_player2_hash[1][2] = true;
+            return 0;
+        }
+        else if (p_player1_hash[1][2] && !p_table_hash[1][0]) {
+            p_table[1][0] = p_player.playerTeam;
+            p_table_hash[1][0] = true;
+			p_player2_hash[1][0] = true;
             return 0;
         }
     }
@@ -287,6 +300,12 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
             p_table[0][2] = p_player.playerTeam;
             p_table_hash[0][2] = true;
 			p_player2_hash[0][2] = true;
+            return 0;
+        }
+        else if (p_player1_hash[0][2] && !p_table_hash[1][1]) {
+            p_table[1][1] = p_player.playerTeam;
+            p_table_hash[1][1] = true;
+			p_player2_hash[1][1] = true;
             return 0;
         }
         else if (p_player1_hash[2][1] && !p_table_hash[2][2]) {
@@ -368,307 +387,309 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
             return 0;
         }
     }
-
-
-    //counterpick for table[0][0]
-    if (p_player1_hash[0][0]) {
-        if (p_player1_hash[0][1] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][0] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[2][3]) {
-            p_table[2][3] = p_player.playerTeam;
-            p_table_hash[2][3] = true;
-			p_player2_hash[2][3] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][2] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[0][1]
-    if (p_player1_hash[0][1]) {
-        if (p_player1_hash[0][0] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][2] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[2][1]) {
-            p_table[2][1] = p_player.playerTeam;
-            p_table_hash[2][1] = true;
-			p_player2_hash[2][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][1] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[0][2]
-    if (p_player1_hash[0][2]) {
-        if (p_player1_hash[0][1] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][0] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][2] && !p_table_hash[2][2]) {
-            p_table[2][2] = p_player.playerTeam;
-            p_table_hash[2][2] = true;
-			p_player2_hash[2][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[1][2]) {
-            p_table[1][2] = p_player.playerTeam;
-            p_table_hash[1][2] = true;
-			p_player2_hash[1][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[1][0]
-    if (p_player1_hash[1][0]) {
-        if (p_player1_hash[0][0] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[1][2]) {
-            p_table[1][2] = p_player.playerTeam;
-            p_table_hash[1][2] = true;
-			p_player2_hash[1][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][2] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-    }
-    if (p_player1_hash[1][1]) {
-        if (p_player1_hash[0][0] && !p_table_hash[2][2]) {
-            p_table[2][2] = p_player.playerTeam;
-            p_table_hash[2][2] = true;
-			p_player2_hash[2][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][1] && !p_table_hash[2][1]) {
-            p_table[2][1] = p_player.playerTeam;
-            p_table_hash[2][1] = true;
-			p_player2_hash[2][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][1] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][2] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][0] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[1][2]
-    if (p_player1_hash[1][2]) {
-        if (p_player1_hash[0][2] && !p_table_hash[2][2]) {
-            p_table[2][2] = p_player.playerTeam;
-            p_table_hash[2][2] = true;
-			p_player2_hash[2][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][0] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[1][0]) {
-            p_table[1][0] = p_player.playerTeam;
-            p_table_hash[1][0] = true;
-			p_player2_hash[1][0] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[2][0]
-    if (p_player1_hash[2][0]) {
-        if (p_player1_hash[1][0] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][0] && !p_table_hash[1][0]) {
-            p_table[1][0] = p_player.playerTeam;
-            p_table_hash[1][0] = true;
-			p_player2_hash[1][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][1] && !p_table_hash[2][2]) {
-            p_table[2][2] = p_player.playerTeam;
-            p_table_hash[2][2] = true;
-			p_player2_hash[2][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[2][1]) {
-            p_table[2][1] = p_player.playerTeam;
-            p_table_hash[2][1] = true;
-			p_player2_hash[2][1] = true;
-            return 0;
-        } 
-    }
-    //counterpick for table[2][1]
-    if (p_player1_hash[2][1]) {
-        if (p_player1_hash[2][0] && !p_table_hash[2][2]) {
-            p_table[2][2] = p_player.playerTeam;
-            p_table_hash[2][2] = true;
-			p_player2_hash[2][2] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][2] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[0][1]) {
-            p_table[0][1] = p_player.playerTeam;
-            p_table_hash[0][1] = true;
-			p_player2_hash[0][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][1] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-    }
-    //counterpick for table[2][2]
-    if (p_player1_hash[2][2]) {
-        if (p_player1_hash[2][1] && !p_table_hash[2][0]) {
-            p_table[2][0] = p_player.playerTeam;
-            p_table_hash[2][0] = true;
-			p_player2_hash[2][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[2][0] && !p_table_hash[2][1]) {
-            p_table[2][1] = p_player.playerTeam;
-            p_table_hash[2][1] = true;
-			p_player2_hash[2][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][1] && !p_table_hash[0][0]) {
-            p_table[0][0] = p_player.playerTeam;
-            p_table_hash[0][0] = true;
-			p_player2_hash[0][0] = true;
-            return 0;
-        }
-        else if (p_player1_hash[0][0] && !p_table_hash[1][1]) {
-            p_table[1][1] = p_player.playerTeam;
-            p_table_hash[1][1] = true;
-			p_player2_hash[1][1] = true;
-            return 0;
-        }
-        else if (p_player1_hash[1][2] && !p_table_hash[0][2]) {
-            p_table[0][2] = p_player.playerTeam;
-            p_table_hash[0][2] = true;
-			p_player2_hash[0][2] = true;
-            return 0;
-        } 
-        else if (p_player1_hash[0][2] && !p_table_hash[1][2]) {
-            p_table[1][2] = p_player.playerTeam;
-            p_table_hash[1][2] = true;
-			p_player2_hash[1][2] = true;
-            return 0;
-        }
-    }
-
     return 1;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // //counterpick for table[0][0]
+    // if (p_player1_hash[0][0]) {
+    //     if (p_player1_hash[0][1] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][0] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[2][3]) {
+    //         p_table[2][3] = p_player.playerTeam;
+    //         p_table_hash[2][3] = true;
+	// 		p_player2_hash[2][3] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][2] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[0][1]
+    // if (p_player1_hash[0][1]) {
+    //     if (p_player1_hash[0][0] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][2] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[2][1]) {
+    //         p_table[2][1] = p_player.playerTeam;
+    //         p_table_hash[2][1] = true;
+	// 		p_player2_hash[2][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][1] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[0][2]
+    // if (p_player1_hash[0][2]) {
+    //     if (p_player1_hash[0][1] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][0] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][2] && !p_table_hash[2][2]) {
+    //         p_table[2][2] = p_player.playerTeam;
+    //         p_table_hash[2][2] = true;
+	// 		p_player2_hash[2][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[1][2]) {
+    //         p_table[1][2] = p_player.playerTeam;
+    //         p_table_hash[1][2] = true;
+	// 		p_player2_hash[1][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][0] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[1][0]
+    // if (p_player1_hash[1][0]) {
+    //     if (p_player1_hash[0][0] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][0] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[1][2]) {
+    //         p_table[1][2] = p_player.playerTeam;
+    //         p_table_hash[1][2] = true;
+	// 		p_player2_hash[1][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][2] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    // }
+    // if (p_player1_hash[1][1]) {
+    //     if (p_player1_hash[0][0] && !p_table_hash[2][2]) {
+    //         p_table[2][2] = p_player.playerTeam;
+    //         p_table_hash[2][2] = true;
+	// 		p_player2_hash[2][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][1] && !p_table_hash[2][1]) {
+    //         p_table[2][1] = p_player.playerTeam;
+    //         p_table_hash[2][1] = true;
+	// 		p_player2_hash[2][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][1] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][2] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][0] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[1][2]
+    // if (p_player1_hash[1][2]) {
+    //     if (p_player1_hash[0][2] && !p_table_hash[2][2]) {
+    //         p_table[2][2] = p_player.playerTeam;
+    //         p_table_hash[2][2] = true;
+	// 		p_player2_hash[2][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][0] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[1][0]) {
+    //         p_table[1][0] = p_player.playerTeam;
+    //         p_table_hash[1][0] = true;
+	// 		p_player2_hash[1][0] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[2][0]
+    // if (p_player1_hash[2][0]) {
+    //     if (p_player1_hash[1][0] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][0] && !p_table_hash[1][0]) {
+    //         p_table[1][0] = p_player.playerTeam;
+    //         p_table_hash[1][0] = true;
+	// 		p_player2_hash[1][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][1] && !p_table_hash[2][2]) {
+    //         p_table[2][2] = p_player.playerTeam;
+    //         p_table_hash[2][2] = true;
+	// 		p_player2_hash[2][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[2][1]) {
+    //         p_table[2][1] = p_player.playerTeam;
+    //         p_table_hash[2][1] = true;
+	// 		p_player2_hash[2][1] = true;
+    //         return 0;
+    //     } 
+    // }
+    // //counterpick for table[2][1]
+    // if (p_player1_hash[2][1]) {
+    //     if (p_player1_hash[2][0] && !p_table_hash[2][2]) {
+    //         p_table[2][2] = p_player.playerTeam;
+    //         p_table_hash[2][2] = true;
+	// 		p_player2_hash[2][2] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][2] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[0][1]) {
+    //         p_table[0][1] = p_player.playerTeam;
+    //         p_table_hash[0][1] = true;
+	// 		p_player2_hash[0][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][1] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    // }
+    // //counterpick for table[2][2]
+    // if (p_player1_hash[2][2]) {
+    //     if (p_player1_hash[2][1] && !p_table_hash[2][0]) {
+    //         p_table[2][0] = p_player.playerTeam;
+    //         p_table_hash[2][0] = true;
+	// 		p_player2_hash[2][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[2][0] && !p_table_hash[2][1]) {
+    //         p_table[2][1] = p_player.playerTeam;
+    //         p_table_hash[2][1] = true;
+	// 		p_player2_hash[2][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][1] && !p_table_hash[0][0]) {
+    //         p_table[0][0] = p_player.playerTeam;
+    //         p_table_hash[0][0] = true;
+	// 		p_player2_hash[0][0] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[0][0] && !p_table_hash[1][1]) {
+    //         p_table[1][1] = p_player.playerTeam;
+    //         p_table_hash[1][1] = true;
+	// 		p_player2_hash[1][1] = true;
+    //         return 0;
+    //     }
+    //     else if (p_player1_hash[1][2] && !p_table_hash[0][2]) {
+    //         p_table[0][2] = p_player.playerTeam;
+    //         p_table_hash[0][2] = true;
+	// 		p_player2_hash[0][2] = true;
+    //         return 0;
+    //     } 
+    //     else if (p_player1_hash[0][2] && !p_table_hash[1][2]) {
+    //         p_table[1][2] = p_player.playerTeam;
+    //         p_table_hash[1][2] = true;
+	// 		p_player2_hash[1][2] = true;
+    //         return 0;
+    //     }
+    // }
+
+    
+
 
 //second utility function for computer_ai()
 // // int computer_ai_util_func2(vector<vector<bool>>& p_player1_hash, 
