@@ -18,8 +18,6 @@ using std::vector;
 
 int game() {
 
-    // std::srand (std::time (0)); //time as a seeder for rand()
-
     while (true) {
 
         vector<vector<bool>> playerOneHash = {{0, 0, 0},
@@ -31,7 +29,6 @@ int game() {
         vector<vector<bool>> tableHash = {{0, 0, 0},
                                           {0, 0, 0},
                                           {0, 0, 0}};
-
         vector<vector<char>> table = { 
                        {'.', '.', '.'},
                        {'.', '.', '.'},
