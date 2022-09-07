@@ -60,7 +60,7 @@ int game() {
             cout << endl << endl;
 
             if (!gameLogic(playerOneHash)) {
-                cout << "\t\t\tYou won the game!"
+                cout << "\t\t\t\tYou won the game!"
                      << endl << endl;
                 break;
             } 
@@ -76,23 +76,26 @@ int game() {
             cout << endl << endl;
             
             if (!gameLogic(playerTwoHash)) {
-                cout << "Bot won the game!" 
+                cout << "\t\t\t\tBot won the game!" 
                      << endl << endl;
                 break;
             }
             if (table_space >= 9) {
-                cout << "Game Tied!" << endl << endl;
+                cout << "\t\t\t\tGame Tied!" << endl << endl;
                 break;
             }
         }
 
-        cout << "Do you want to continue the game 'y' or 'n' \
-                \nDefault 'y'\n" << endl;
+        cout << "\t\tDo you want to continue the game 'y' or 'n' \
+                \n\t\t\tDefault 'y'\n" << endl;
         char continueGame = 'y';
-        cin >> continueGame;
-
-        if (continueGame == 'n')
-            exit(0);
+        
+        while (cin >> continueGame) {
+            if (continueGame == 'n' || continueGame == 'N')
+                exit(0);
+            if (continueGame == 'y' || continueGame == 'Y')
+                break;
+        }
     }
 }
 
