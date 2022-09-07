@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-// #include <ctime>
-// #include <cstdlib>
 
 #include "..\includes\player_struct.h"
 #include "..\includes\computer_ai.h"

@@ -3,7 +3,7 @@
 	"tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++.exe build active file (Custom)",
+            "label": "VSCode C/C++: g++.exe build active file (Custom)",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
