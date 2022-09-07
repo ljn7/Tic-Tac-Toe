@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "..\includes\player_struct.h"
 #include "..\includes\show_table.h"
@@ -26,11 +27,19 @@ void chooseThePlace (vector<vector<char>>& p_table,
     while (true) {
         
         do {
-            cout << "Please choose an empty space\n";
+            cout << "Please choose an empty space" << endl;
             cin >> row;
             cin >> column;
+
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                cout << "Invalid input, retry again." << endl;
+                cin >> row;
+                cin >> column;
+            }
             
-        } while ((row < 1 || row > 3) && (column > 3 || column < 1));
+        } while (!(row >= 1 && row <= 3) || !(column <= 3 && column >= 1));
 
         if (!p_table_hash[row - 1][column - 1]) {
             p_table[row - 1][column - 1] = p_p1.playerTeam;
