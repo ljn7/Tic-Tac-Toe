@@ -49,7 +49,8 @@ int game() {
         table_space = 0;
 
         while (true) {
-                
+
+            cout << "\t\t\t\tYour Turn" << endl;   
             chooseThePlace (table, p1, playerOneHash, tableHash);
             ++table_space;
             
@@ -59,11 +60,12 @@ int game() {
             cout << endl << endl;
 
             if (!gameLogic(playerOneHash)) {
-                cout << "Player " << p1.playerTeam << " won the game!";
-                cout << endl << endl;
+                cout << "\t\t\tYou won the game!"
+                     << endl << endl;
                 break;
             } 
-
+            
+            cout <<"\t\t\t\tBot's Turn" << endl;
             computer_ai(table, p1, p2, playerOneHash, playerTwoHash, 
                         tableHash, table_space);
             ++table_space;
@@ -74,8 +76,8 @@ int game() {
             cout << endl << endl;
             
             if (!gameLogic(playerTwoHash)) {
-                cout << "Player " << p2.playerTeam 
-                     << " won the game!" << endl << endl;
+                cout << "Bot won the game!" 
+                     << endl << endl;
                 break;
             }
             if (table_space >= 9) {

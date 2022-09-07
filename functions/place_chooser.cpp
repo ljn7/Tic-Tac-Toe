@@ -18,8 +18,8 @@ void chooseThePlace (vector<vector<char>>& p_table,
     short int row;
     short int column;
 
-    cout << "On which row and column do you want to place\n"
-                "(Enter the number respectively) " << p_p1.playerTeam << endl;
+    cout << "\t\tOn which row and column do you want to place\n"
+                "\t\t\t(Enter the number respectively) " << endl << endl;
 
     show_table(p_table);
     cout << endl;
@@ -27,14 +27,14 @@ void chooseThePlace (vector<vector<char>>& p_table,
     while (true) {
         
         do {
-            cout << "Please choose an empty space" << endl;
+            cout << "\t\t\tPlease choose an empty space" << endl;
             cin >> row;
             cin >> column;
 
             while(cin.fail()) {
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-                cout << "Invalid input, retry again." << endl;
+                cout << "\t\t\tInvalid input, retry again." << endl;
                 cin >> row;
                 cin >> column;
             }
