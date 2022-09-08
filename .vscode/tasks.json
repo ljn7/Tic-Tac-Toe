@@ -17,7 +17,8 @@
                 "functions\\show_table.cpp",
                 "functions\\computer_ai.cpp",
                 "functions\\app.cpp",
-                "functions\\pseudo_rng.cpp"
+                "functions\\pseudo_rng.cpp",
+                "-static"
             ],
             "options": {
                 "cwd": "${fileDirname}"
