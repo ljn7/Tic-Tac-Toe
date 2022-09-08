@@ -28,14 +28,18 @@ void chooseThePlace (vector<vector<char>>& p_table,
         
         do {
             cout << "\t\t\tPlease choose an empty space" << endl;
+            cout << "\t\t\t";
             cin >> row;
+            cout << "\t\t\t";
             cin >> column;
 
             while(cin.fail()) {
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
                 cout << "\t\t\tInvalid input, retry again." << endl;
+                cout << "\t\t\t";
                 cin >> row;
+                cout << "\t\t\t"; 
                 cin >> column;
             }
             

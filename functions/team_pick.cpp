@@ -2,12 +2,11 @@
 
 #include "..\includes\player_struct.h"
 
-using std::cin;
-
 void pickTheTeam (Player& p_p1, Player& p_p2) {
 
-    do {
-            cin >> p_p1.playerTeam;
+    do {    
+            std::cout << "\t\t\tand press the enter key\n\t\t\t";
+            std::cin >> p_p1.playerTeam;
     } while (!(p_p1.playerTeam == 'X' || p_p1.playerTeam == 'x') && 
             !(p_p1.playerTeam == 'O' || p_p1.playerTeam == 'o'));
 

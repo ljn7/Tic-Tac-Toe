@@ -16,6 +16,11 @@ using std::vector;
 
 int game() {
 
+    cout << "\t\t\t\tHow to play?\n"
+            "\t\tJust type the row and column in numbers in range of 1 to 3\n"
+            "\t\tTo pick 1st row 2nd column on your turn, simply type\n"
+            "\t\t\t1 2 and press the enter key\n" << endl;
+
     while (true) {
 
         vector<vector<bool>> playerOneHash = {{0, 0, 0},
@@ -34,7 +39,7 @@ int game() {
         Player p1;
         Player p2;
 
-        cout << "Choose the team\n For 'X' type X and for 'O' type O" 
+        cout << "\n\t\t\tChoose the team\n\t\tFor 'X' type X and for 'O' type O" 
              << endl;
 
         pickTheTeam(p1, p2);
@@ -46,7 +51,7 @@ int game() {
 
         while (true) {
 
-            cout << "\t\t\t\tYour Turn" << endl;   
+            cout << "\t\t\t\tYour Turn\n" << endl;   
             chooseThePlace (table, p1, playerOneHash, tableHash);
             ++table_space;
             
@@ -86,11 +91,14 @@ int game() {
                 \n\t\t\tDefault 'y'\n" << endl;
         char continueGame = 'y';
         
+        cout << "\t\t\t";
+
         while (cin >> continueGame) {
             if (continueGame == 'n' || continueGame == 'N')
                 exit(0);
             if (continueGame == 'y' || continueGame == 'Y')
                 break;
+            cout << "\t\t\t";
         }
     }
 }
