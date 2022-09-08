@@ -27,11 +27,9 @@ int game() {
         vector<vector<bool>> tableHash = {{0, 0, 0},
                                           {0, 0, 0},
                                           {0, 0, 0}};
-        vector<vector<char>> table = { 
-                       {'.', '.', '.'},
-                       {'.', '.', '.'},
-                       {'.', '.', '.'}
-                     };
+        vector<vector<char>> table = {{'.', '.', '.'},
+                                      {'.', '.', '.'},
+                                      {'.', '.', '.'}};
                      
         Player p1;
         Player p2;
