@@ -27,10 +27,10 @@ void chooseThePlace (vector<vector<char>>& p_table,
     while (true) {
         
         do {
+            cin.clear();
             cout << "\t\t\tPlease choose an empty space" << endl;
             cout << "\t\t\t";
             cin >> row;
-            cout << "\t\t\t";
             cin >> column;
 
             while(cin.fail()) {
@@ -39,8 +39,8 @@ void chooseThePlace (vector<vector<char>>& p_table,
                 cout << "\t\t\tInvalid input, retry again." << endl;
                 cout << "\t\t\t";
                 cin >> row;
-                cout << "\t\t\t"; 
                 cin >> column;
+                cout << endl;
             }
             
         } while (!(row >= 1 && row <= 3) || !(column <= 3 && column >= 1));

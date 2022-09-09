@@ -12,7 +12,12 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
                           vector<vector<bool>>& p_player2_hash,
                           vector<vector<bool>>& p_table_hash, 
                           const Player& p_player,
-                          vector<vector <char>>& p_table);                         
+                          vector<vector <char>>& p_table);
+
+int computer_ai_util_func2(vector<vector<bool>>& p_player_hash,
+                           vector<vector<bool>>& p_table_hash,
+                           vector<vector<char>>& p_table,
+                           const Player& p_player);                         
 
 void computer_ai(vector<vector <char>>& p_table,  
                  const Player& p_p1, 
@@ -43,6 +48,9 @@ void computer_ai(vector<vector <char>>& p_table,
         return;
 
     if (!computer_ai_util_func(p_p1_hash, p_p2_hash, p_table_hash, p_p2, p_table))
+        return;
+
+    if (!computer_ai_util_func2(p_p2_hash, p_table_hash, p_table, p_p2))
         return;
     
     for (int i = 0; i < 3; i++) 
@@ -381,5 +389,203 @@ int computer_ai_util_func(vector<vector<bool>>& p_player1_hash,
             return 0;
         }
     }
+    return 1;
+}
+
+int computer_ai_util_func2(vector<vector<bool>>& p_player_hash,
+                           vector<vector<bool>>& p_table_hash,
+                           vector<vector<char>>& p_table,
+                           const Player& p_player) {
+
+    if (p_player_hash[0][0]) {
+        
+        if (!p_table_hash[0][1] && !p_table_hash[0][2]) {
+            p_table[0][1] = p_player.playerTeam; 
+            p_table_hash[0][1] = true;
+            p_player_hash[0][1] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][0] && !p_table_hash[2][0]) {
+            p_table[1][0] = p_player.playerTeam; 
+            p_table_hash[1][0] = true;
+            p_player_hash[1][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][1] && !p_table_hash[2][2]) {
+            p_table[1][1] = p_player.playerTeam; 
+            p_table_hash[1][1] = true;
+            p_player_hash[1][1] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][1] && !p_table_hash[2][2]) {
+            p_table[1][1] = p_player.playerTeam; 
+            p_table_hash[1][1] = true;
+            p_player_hash[1][1] = true;
+            return 0;  
+        }
+    }
+
+    if (p_player_hash[0][1]) {
+
+        if (!p_table_hash[0][0] && !p_table_hash[0][2]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][1] && !p_table_hash[2][1]) {
+            p_table[1][1] = p_player.playerTeam; 
+            p_table_hash[1][1] = true;
+            p_player_hash[1][1] = true;
+            return 0;  
+        }
+    }
+    
+    if (p_player_hash[0][2]) {
+        
+        if (!p_table_hash[0][0] && !p_table_hash[0][1]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][1] && !p_table_hash[2][0]) {
+            p_table[1][1] = p_player.playerTeam; 
+            p_table_hash[1][1] = true;
+            p_player_hash[1][1] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][2] && !p_table_hash[2][2]) {
+            p_table[1][2] = p_player.playerTeam; 
+            p_table_hash[1][2] = true;
+            p_player_hash[1][2] = true;
+            return 0;  
+        }
+    }
+
+    if (p_player_hash[1][0]) {
+
+        if (!p_table_hash[0][0] && !p_table_hash[2][0]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][1] && !p_table_hash[1][2]) {
+            p_table[1][1] = p_player.playerTeam; 
+            p_table_hash[1][1] = true;
+            p_player_hash[1][1] = true;
+            return 0;  
+        }
+    }
+
+    if (p_player_hash[1][1]) {
+
+        if (!p_table_hash[0][0] && !p_table_hash[2][2]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[0][1] && !p_table_hash[2][1]) {
+            p_table[0][1] = p_player.playerTeam; 
+            p_table_hash[0][1] = true;
+            p_player_hash[0][1] = true;
+            return 0;  
+        }
+        if (!p_table_hash[0][2] && !p_table_hash[2][0]) {
+            p_table[0][2] = p_player.playerTeam; 
+            p_table_hash[0][2] = true;
+            p_player_hash[0][2] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][0] && !p_table_hash[1][2]) {
+            p_table[1][0] = p_player.playerTeam; 
+            p_table_hash[1][0] = true;
+            p_player_hash[1][0] = true;
+            return 0;  
+        }
+    }
+
+    if (p_player_hash[1][2]) {
+
+        if (!p_table_hash[0][2] && !p_table_hash[2][2]) {
+            p_table[0][2] = p_player.playerTeam; 
+            p_table_hash[0][2] = true;
+            p_player_hash[0][2] = true;
+            return 0;  
+        }
+        if (!p_table_hash[1][0] && !p_table_hash[1][1]) {
+            p_table[1][0] = p_player.playerTeam; 
+            p_table_hash[1][0] = true;
+            p_player_hash[1][0] = true;
+            return 0;  
+        }
+
+    }
+
+    if (p_player_hash[2][0]) {
+
+        if (!p_table_hash[0][0] && !p_table_hash[1][0]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[0][2] && !p_table_hash[1][1]) {
+            p_table[0][2] = p_player.playerTeam; 
+            p_table_hash[0][2] = true;
+            p_player_hash[0][2] = true;
+            return 0;  
+        }
+        if (!p_table_hash[2][1] && !p_table_hash[2][2]) {
+            p_table[2][1] = p_player.playerTeam; 
+            p_table_hash[2][1] = true;
+            p_player_hash[2][1] = true;
+            return 0;  
+        }
+  
+    }
+
+    if (p_player_hash[2][1]) {
+
+        if (!p_table_hash[0][1] && !p_table_hash[1][1]) {
+            p_table[0][1] = p_player.playerTeam; 
+            p_table_hash[0][1] = true;
+            p_player_hash[0][1] = true;
+            return 0;  
+        }
+        if (!p_table_hash[2][0] && !p_table_hash[2][2]) {
+            p_table[2][0] = p_player.playerTeam; 
+            p_table_hash[2][0] = true;
+            p_player_hash[2][0] = true;
+            return 0;  
+        }
+  
+    }
+
+    if (p_player_hash[2][2]) {
+
+        if (!p_table_hash[0][0] && !p_table_hash[1][1]) {
+            p_table[0][0] = p_player.playerTeam; 
+            p_table_hash[0][0] = true;
+            p_player_hash[0][0] = true;
+            return 0;  
+        }
+        if (!p_table_hash[0][2] && !p_table_hash[1][2]) {
+            p_table[1][2] = p_player.playerTeam; 
+            p_table_hash[1][2] = true;
+            p_player_hash[1][2] = true;
+            return 0;  
+        }
+        if (!p_table_hash[2][0] && !p_table_hash[2][1]) {
+            p_table[2][1] = p_player.playerTeam; 
+            p_table_hash[2][1] = true;
+            p_player_hash[2][1] = true;
+            return 0;  
+        }
+        
+    }
+
     return 1;
 }
