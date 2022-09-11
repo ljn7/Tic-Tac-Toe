@@ -49,6 +49,13 @@
             "xstddef": "cpp",
             "xtr1common": "cpp",
             "xutility": "cpp"
-        }
+        },
+        "makefile.launchConfigurations": [
+            {
+                "cwd": "d:\\Git\\Tic-Tac-Toe",
+                "binaryPath": "d:\\Git\\Tic-Tac-Toe\\TicTacToe.exe",
+                "binaryArgs": []
+            }
+        ]
     }
 }
